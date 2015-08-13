@@ -1,0 +1,32 @@
+{
+  "name": "slack-topical",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akx/slack-topical"
+  },
+  "author": "Aarni Koskela <akx@iki.fi>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akx/slack-topical/issues"
+  },
+  "homepage": "https://github.com/akx/slack-topical",
+  "dependencies": {
+    "babel": "^5.8.21",
+    "bluebird": "^2.9.34",
+    "foreach": "^2.0.5",
+    "merge": "^1.2.0",
+    "request": "^2.60.0",
+    "sprintf-js": "^1.0.3",
+    "toml": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^1.1.0"
+  }
+}
