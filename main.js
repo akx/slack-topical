@@ -3,16 +3,21 @@ const Promise = require("bluebird");
 const plugins = require("./plugins");
 const settings = require("./settings");
 const slack = require("./slack");
+const camel = require("camelcase");
+const uncamel = require("decamelize");
 
-function getChannelTopic(options) {
+function getChannelTopic(chanOpts) {
     return new Promise((resolve) => {
         var byPlugin = {};
         each(plugins, (fn, name) => {
-            if(options[name]) byPlugin[name] = fn(options[name]);
-        })
+            [name, camel(name), uncamel(name, "_"), uncamel(name, "-")].forEach((mName) => {
+                var pluginOpts = chanOpts[mName];
+                if(pluginOpts) byPlugin[name] = fn(pluginOpts);
+            });
+        });
         Promise.props(byPlugin).then((byPlugin) => {
             var val = Object.values(byPlugin).filter((bit) => !!bit);
-            resolve(val.join(" | "));
+            resolve(val.join(chanOpts.pluginSep));
         });
     });
 }
@@ -27,8 +32,11 @@ Promise.props(channelTopicPromises).then((newTopicMap) => {
             const chanInfo = chanMap[chanName];
             if(!chanInfo) return;
             const oldTopic = chanInfo.topic.value;
-            const [staticPart] = oldTopic.split(chanOpts.sep, 2);
-            const newTopic = [staticPart, newDynamic].join(chanOpts.sep);
+            const [staticPart] = oldTopic.split(chanOpts.staticSep, 2);
+            var newTopic = staticPart;
+            if(newDynamic && newDynamic.length) {
+                newTopic = [staticPart, newDynamic].join(chanOpts.staticSep);
+            }
             slack.setTopic(chanInfo, newTopic);
         });
     });

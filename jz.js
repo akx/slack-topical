@@ -10,7 +10,11 @@ export default function(url, options) {
     return new Promise(function(resolve, reject) {
         request(options, function(error, response, body) {
             if(error) return reject(error);
-            var result = JSON.parse(body);
+            try {
+                var result = JSON.parse(body);
+            } catch(error) {
+                return reject(error);
+            }
             if(options.mutate) result = options.mutate(result);
             return resolve(result);
         });

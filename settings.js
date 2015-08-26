@@ -8,7 +8,8 @@ const defaultSettings = {
 };
 
 const defaultChanSettings = {
-    sep: " | "
+    staticSep: " | ",
+    pluginSep: " | ",
 };
 
 const userSettings = fs.existsSync("slack-topical.toml") && toml.parse(fs.readFileSync("slack-topical.toml", "UTF-8"));
