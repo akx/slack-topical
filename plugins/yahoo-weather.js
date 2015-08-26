@@ -19,7 +19,7 @@ export default function yahooWeather(options) {
         sep: " ",
         cond: ":star:",
         sunrise: ":sunrise:",
-        sunset: ":sunset:",
+        sunset: ":night_with_stars:",
         humidity: ":droplet:",
         wind: ":dash:",
         temperature: ":thermo:",
