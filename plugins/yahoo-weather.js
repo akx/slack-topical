@@ -14,7 +14,7 @@ const sprintf = require("sprintf-js").sprintf;
 const log = require("../log");
 
 export default function yahooWeather(options) {
-    options = merge({
+    options = merge({}, {
         location: null,
         sep: " ",
         cond: ":star:",

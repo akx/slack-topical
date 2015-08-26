@@ -6,13 +6,13 @@ const slack = require("./slack");
 const camel = require("camelcase");
 const uncamel = require("decamelize");
 
-function getChannelTopic(chanOpts) {
+function getChannelTopic(chanOpts, chanName) {
     return new Promise((resolve) => {
         var byPlugin = {};
         each(plugins, (fn, name) => {
             [name, camel(name), uncamel(name, "_"), uncamel(name, "-")].forEach((mName) => {
                 var pluginOpts = chanOpts[mName];
-                if(pluginOpts) byPlugin[name] = fn(pluginOpts);
+                if(pluginOpts && !byPlugin[name]) byPlugin[name] = fn(pluginOpts, chanName);
             });
         });
         Promise.props(byPlugin).then((byPlugin) => {
@@ -23,7 +23,7 @@ function getChannelTopic(chanOpts) {
 }
 
 var channelTopicPromises = {};
-each(settings.chan, (o, c) => { channelTopicPromises[c] = getChannelTopic(o); });
+each(settings.chan, (o, c) => { channelTopicPromises[c] = getChannelTopic(o, c); });
 
 Promise.props(channelTopicPromises).then((newTopicMap) => {
     slack.channelListPromise.then((chanMap) => {

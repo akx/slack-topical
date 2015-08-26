@@ -2,9 +2,10 @@ const jz = require("../jz");
 const merge = require("merge");
 const Promise = require("bluebird");
 const sprintf = require("sprintf-js").sprintf;
+const log = require("../log");
 
-export default function github(options) {
-    options = merge({
+export default function github(options, chanName) {
+    options = merge({}, {
         sep: ", ",
         prs: true,
         prsLabel: ":wrench:",
@@ -45,6 +46,9 @@ export default function github(options) {
                 bits = bits.filter((bit) => !!bit);
                 resolve(bits.join(options.sep));
             }
-        );
+        ).catch(function(error) {
+                error = error.message || error;
+                log.w("Github", "Couldn't Github %s (%s): %s", options.repo, chanName, error);
+        });
     });
 }

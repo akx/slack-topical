@@ -15,7 +15,7 @@ const defaultChanSettings = {
 const userSettings = fs.existsSync("slack-topical.toml") && toml.parse(fs.readFileSync("slack-topical.toml", "UTF-8"));
 const settings = merge.recursive(defaultSettings, userSettings);
 Object.keys(settings.chan).forEach((chan) => {
-    settings.chan[chan] = merge(defaultChanSettings, settings.chan[chan]);
+    settings.chan[chan] = merge({}, defaultChanSettings, settings.chan[chan]);
 });
 
 export default settings;
