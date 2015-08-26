@@ -47,8 +47,9 @@ export default function github(options, chanName) {
                 resolve(bits.join(options.sep));
             }
         ).catch(function(error) {
-                error = error.message || error;
-                log.w("Github", "Couldn't Github %s (%s): %s", options.repo, chanName, error);
+            error = error.message || error;
+            log.w("Github", "Couldn't Github %s (%s): %s", options.repo, chanName, error);
+            resolve(null);
         });
     });
 }
