@@ -16,12 +16,11 @@ function ts() {
     );
 }
 
-
 export function log(type, tag, message) {
     type = (("" + type).toLowerCase());
     if (!levels[type]) type = "i";
     const level = levels[level];
-    if(level < visibleLevel) return;
+    if (level < visibleLevel) return;
     message = sprintf.apply(null, [].slice.call(arguments, 2));
     const formatted = sprintf("[%s] %s/%s: %s", ts(), type.toUpperCase(), tag, message);
     console.log(formatted);
