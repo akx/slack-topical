@@ -1,6 +1,6 @@
 {
   "name": "slack-topical",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,6 @@
     "bluebird": "^3.0.5",
     "camelcase": "^2.0.1",
     "decamelize": "^1.0.0",
-    "foreach": "^2.0.5",
     "merge": "^1.2.0",
     "request": "^2.60.0",
     "sprintf-js": "^1.0.3",
