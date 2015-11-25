@@ -8,3 +8,4 @@ cache:
 script:
   - npm run lint
   - npm run test:cov
+  - npm run coveralls

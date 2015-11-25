@@ -1,6 +1,7 @@
 # slack-topical
 
 [![Build Status](https://travis-ci.org/akx/slack-topical.svg?branch=master)](https://travis-ci.org/akx/slack-topical)
+[![Coverage Status](https://coveralls.io/repos/akx/slack-topical/badge.svg?branch=master&service=github)](https://coveralls.io/github/akx/slack-topical?branch=master)
 
 Slack-Topical is a tool that updates the topic of one or more Slack channels based on data fed by plugins.
 
