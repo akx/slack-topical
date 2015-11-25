@@ -1,9 +1,9 @@
-const Promise = require("bluebird");
-const getSettings = require("./settings").getSettings;
-const SlackAPI = require("./SlackAPI");
-const getChannelTopic = require("./getChannelTopic");
+import Promise from "bluebird";
+import {getSettings} from "./settings";
+import SlackAPI from "./SlackAPI";
+import getChannelTopic from "./getChannelTopic";
 
-function main() {
+export function main() {
     const settings = getSettings("./slack-topical.toml");
     const slack = new SlackAPI(settings);
     const channelsPromise = slack.getChannels();
@@ -27,5 +27,3 @@ function main() {
         });
     });
 }
-
-export default main;

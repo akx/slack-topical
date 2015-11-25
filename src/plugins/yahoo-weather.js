@@ -1,17 +1,8 @@
-//41	heavy snow
-//42	scattered snow showers
-//43	heavy snow
-//44	partly cloudy
-//45	thundershowers
-//46	snow showers
-//47	isolated thundershowers
-//3200	not available
-
-const jz = require("../jz");
-const merge = require("merge");
-const Promise = require("bluebird");
-const sprintf = require("sprintf-js").sprintf;
-const log = require("../log");
+import jz from "../jz";
+import merge from "merge";
+import Promise from "bluebird";
+import {sprintf} from "sprintf-js";
+import log from "../log";
 
 function format(heading, value, suffix) {
     if (!(heading && heading.length)) return null;
@@ -22,6 +13,14 @@ function format(heading, value, suffix) {
 }
 
 function getCondEmoji(condCode) {
+    //41	heavy snow
+    //42	scattered snow showers
+    //43	heavy snow
+    //44	partly cloudy
+    //45	thundershowers
+    //46	snow showers
+    //47	isolated thundershowers
+    //3200	not available
     condCode = 0 | condCode;
     if (condCode <= 12) return ":shower:";
     if (condCode <= 18) return ":snowflake:";

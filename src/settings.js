@@ -1,10 +1,10 @@
-const fs = require("fs");
-const merge = require("merge");
-const toml = require("toml");
-const pluginApi = require("./plugins");
-const log = require("./log");
-const camel = require("camelcase");
-const uncamel = require("decamelize");
+import fs from "fs";
+import merge from "merge";
+import toml from "toml";
+import {getPlugins} from "./plugins";
+import log from "./log";
+import camel from "camelcase";
+import uncamel from "decamelize";
 
 
 const defaultSettings = {
@@ -27,7 +27,7 @@ export function getRawSettings(filename = null) {
 }
 
 export function configurePlugins(settings, additionalPlugins = {}) {
-    const plugins = merge({}, pluginApi.getPlugins(settings), additionalPlugins);
+    const plugins = merge({}, getPlugins(settings), additionalPlugins);
     // Populate aliases
     Object.keys(plugins).forEach((name) => {
         const pluginClass = plugins[name];

@@ -1,4 +1,4 @@
-const Promise = require("bluebird");
+import Promise from "bluebird";
 
 export default function getChannelTopic(chanOpts) {
     return new Promise((resolve) => {

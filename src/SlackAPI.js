@@ -1,4 +1,4 @@
-const jz = require("./jz");
+import jz from "./jz";
 
 export default class SlackAPI {
     constructor(settings) {

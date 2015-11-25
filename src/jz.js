@@ -1,7 +1,7 @@
-const Promise = require("bluebird");
-const request = require("request");
-const merge = require("merge");
-const log = require("./log");
+import Promise from "bluebird";
+import request from "request";
+import merge from "merge";
+import log from "./log";
 
 export default function(url, options) {
     options = merge.recursive({

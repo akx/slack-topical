@@ -1,4 +1,4 @@
-const sprintf = require("sprintf-js").sprintf;
+import {sprintf} from "sprintf-js";
 const levels = {e: 10, w: 20, i: 30, d: 40};
 var visibleLevel = levels.i;
 
@@ -40,3 +40,4 @@ export var e = as("e");
 export var d = as("d");
 export var i = as("i");
 export var w = as("w");
+export default {e, d, i, w, setLevel, log};

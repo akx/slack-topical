@@ -1,8 +1,8 @@
-const jz = require("../jz");
-const merge = require("merge");
-const Promise = require("bluebird");
-const sprintf = require("sprintf-js").sprintf;
-const log = require("../log");
+import jz from "../jz";
+import merge from "merge";
+import Promise from "bluebird";
+import {sprintf} from "sprintf-js";
+import log from "../log";
 
 export default class Github {
     constructor(options) {
