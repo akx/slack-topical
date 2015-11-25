@@ -1,7 +1,7 @@
 *.log
 *.pid
 *.seed
-*.toml
+/*.toml
 .grunt
 .idea
 .lock-wscript

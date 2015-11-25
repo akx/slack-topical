@@ -1,0 +1,12 @@
+[slack]
+token = "asdasd"
+dry = true
+
+[chan.ioio.github.1]
+repo = "jquery/jquery"
+
+[chan.ioio.github.2]
+repo = "eslint/eslint"
+
+[chan.peeloilu.yahoo-weather]
+location = "Turku, Finland"
