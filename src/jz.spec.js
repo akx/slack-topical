@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 import {expect} from "chai";
 import Promise from "bluebird";
 import jz from "./jz";
@@ -32,14 +33,14 @@ describe("jz", () => {
 
     it("should be able to deal with server errors", () => {
         const {port} = server.address();
-        return jz("http://127.0.0.1:" + port + "/errors").then(null, (err) => {
+        return jz("http://127.0.0.1:" + port + "/errors").then(null, () => {
             return "ok";
         });
     });
 
     it("should be able to deal with bad json", () => {
         const {port} = server.address();
-        return jz("http://127.0.0.1:" + port + "/badJson").then(null, (err) => {
+        return jz("http://127.0.0.1:" + port + "/badJson").then(null, () => {
             return "ok";
         });
     });

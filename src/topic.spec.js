@@ -32,6 +32,6 @@ describe("topic API", () => {
         settingsApi.configurePlugins(settings, {dummy: DummyPlugin});
         return getChannelTopic(settings.chan.waterfall).then((value) => {
             expect(value).to.equal("not an angry dummy +++ blooktunes");
-        })
+        });
     });
 });

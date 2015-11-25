@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "lint": "eslint .",
+    "lint": "eslint src",
     "test": "mocha --compilers js:babel-register src",
     "test:cov": "babel-node node_modules/isparta/bin/isparta cover --report text --report html node_modules/mocha/bin/_mocha -- --reporter dot src"
   },

@@ -4,7 +4,7 @@ import yahooWeather from "./yahoo-weather";
 
 const staticRegistry = {github, yahooWeather};
 
-export function getPlugins(settings) {
+export function getPlugins(/*settings*/) {
     // TODO: use `settings` to dynamically load plugins?
     return merge({}, staticRegistry, {});
 }
