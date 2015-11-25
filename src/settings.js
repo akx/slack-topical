@@ -20,8 +20,8 @@ const defaultChanSettings = {
 export function getRawSettings(filename = null) {
     const userSettings = (filename && fs.existsSync(filename) && toml.parse(fs.readFileSync(filename, "UTF-8")));
     const settings = merge.recursive(defaultSettings, userSettings);
-    Object.keys(settings.chan).forEach((chan) => {
-        settings.chan[chan] = merge({}, defaultChanSettings, settings.chan[chan]);
+    Object.keys(settings.chan).forEach((name) => {
+        settings.chan[name] = merge({name}, defaultChanSettings, settings.chan[name]);
     });
     return settings;
 }

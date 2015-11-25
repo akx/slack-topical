@@ -1,9 +1,9 @@
-var sprintf = require('sprintf-js').sprintf;
+const sprintf = require("sprintf-js").sprintf;
 const levels = {e: 10, w: 20, i: 30, d: 40};
 var visibleLevel = levels.i;
 
 function ts() {
-    var now = new Date();
+    const now = new Date();
     return sprintf(
         "%04d-%02d-%02dT%02d:%02d:%02d.%03d",
         now.getFullYear(),

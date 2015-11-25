@@ -1,6 +1,6 @@
 const Promise = require("bluebird");
 
-export default function getChannelTopic(chanOpts, chanName) {
+export default function getChannelTopic(chanOpts) {
     return new Promise((resolve) => {
         var renders = {};
         Object.keys(chanOpts._plugins).forEach((instanceName) => {
@@ -23,4 +23,4 @@ export default function getChannelTopic(chanOpts, chanName) {
             resolve(val.join(chanOpts.pluginSep));
         });
     });
-};
+}

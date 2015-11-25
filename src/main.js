@@ -11,7 +11,7 @@ function main() {
         const channelSettings = settings.chan[chanName];
         Promise.all([
             channelsPromise,
-            getChannelTopic(channelSettings, chanName)
+            getChannelTopic(channelSettings)
         ]).then(([slackChannelMap, newDynamic]) => {
             const slackChannelInfo = slackChannelMap[chanName];
             if (!slackChannelInfo) {
